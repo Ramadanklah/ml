@@ -1,0 +1,18 @@
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+_ReSharper*/
+.idea/
+*.log
+lab.db
+packages/
+*.ncrunch*
+*.local.json
+# Rider
+.idea/
+# VS Code
+.vscode/
