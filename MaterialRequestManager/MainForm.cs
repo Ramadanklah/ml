@@ -13,15 +13,29 @@ public class MainForm : Form
     private void InitializeComponent()
     {
         Text = "Material Request Manager";
-        Width = 800;
-        Height = 600;
-        var lbl = new Label
+        Width = 1000;
+        Height = 700;
+
+        var menu = new MenuStrip();
+        var doctorsItem = new ToolStripMenuItem("Doctors");
+        var requestsItem = new ToolStripMenuItem("Requests");
+        var reportsItem = new ToolStripMenuItem("Reports");
+
+        menu.Items.AddRange(new ToolStripItem[] { doctorsItem, requestsItem, reportsItem });
+        MainMenuStrip = menu;
+        Controls.Add(menu);
+
+        doctorsItem.Click += (_, __) => new DoctorsForm().ShowDialog(this);
+        requestsItem.Click += (_, __) => new RequestsForm().ShowDialog(this);
+        reportsItem.Click += (_, __) => new ReportsForm().ShowDialog(this);
+
+        var welcome = new Label
         {
-            Text = "Material Request Manager\n(Basic skeleton – extend as needed)",
+            Text = "Welcome to the Material Request Manager\nUse the menu to start.",
             Dock = DockStyle.Fill,
             TextAlign = ContentAlignment.MiddleCenter,
-            Font = new Font("Segoe UI", 14, FontStyle.Bold)
+            Font = new Font("Segoe UI", 16, FontStyle.Bold)
         };
-        Controls.Add(lbl);
+        Controls.Add(welcome);
     }
 }

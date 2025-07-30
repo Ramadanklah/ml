@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using Data;
+using OfficeOpenXml;
 
 namespace MaterialRequestManager;
 
@@ -14,6 +15,7 @@ internal static class Program
 
         using var db = new LabContext();
         db.Database.EnsureCreated();
+        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
         Application.Run(new MainForm());
     }
